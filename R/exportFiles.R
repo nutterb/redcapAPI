@@ -148,7 +148,7 @@ exportFiles.redcapApiConnection <- function(rcon,
   #* make sure 'event' exists in the project
   if (inherits(events_list, "data.frame"))
   {
-    if (!event %in% events_list$unique_event_name) 
+    if (!is.null(event) && !event %in% events_list$unique_event_name) 
       coll$push(paste0("'", event, "' is not a valid event name in this project."))
   }
   
@@ -169,6 +169,8 @@ exportFiles.redcapApiConnection <- function(rcon,
                   config = rcon$config)
 
   if (x$status_code != 200) redcap_error(x, error_handling)
+  
+  # FIXME: Make use of `reconstituteFileFromExport`
   
   #* strip the returned character string to just the file name.
   filename <- sub(pattern = "[[:print:]]+; name=", 

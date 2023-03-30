@@ -1,3 +1,22 @@
+## Changes in Versino 2.6.1
+
+* Emergency fix. REDCap latest version has changed it's API calling syntax.
+* Fix to choice name parsing when only a single choice is specified.
+* Fix to importMethod validators when event=NULL
+
+## Changes in Version 2.6.0
+
+* A set of functions to deal with file import / export in REDCap
+  * exportFileRepositoryListing
+  * exportFromFileRepository
+  * exportFileRepository
+  * importToFileRepository
+  * deleteFromFileRepository
+  * createFileRepositoryFolder
+  * importFileRepository
+  * deleteFileRepository
+
+
 ## Changes in Version 2.5.0
 
 * IMPORTANT: The upcoming 3.0.0 release will be a breaking change for exportRecords. This is needed for full inversion of control to the user over type casting.
